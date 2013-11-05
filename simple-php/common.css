@@ -1,0 +1,33 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
+body {
+    margin: 0 30px;
+}
+h1 {
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+}
+body, input, textarea {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 100;
+    font-size: 17px;
+    margin: 10px auto 10px;
+}
+.app {
+    width: 600px;
+    margin: 0 auto;
+}
+.app > div > * {
+    display: block;
+    width: 600px;
+}
+.input {
+    float:left;
+}
+#my-title, #my-teaser, #my-content {
+    border: 1px solid #aaa;
+    outline: none;
+}
+#my-title:focus, #my-teaser:focus, #my-content:focus {
+    background-color: #EDD780;
+}

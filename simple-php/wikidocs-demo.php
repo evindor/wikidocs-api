@@ -3,50 +3,10 @@
 <html>
 <head>
     <title>Wikidocs demo</title>
-
-    <!-- Inlice style, just to make demo it look nice ;-). 
-         You know how to do this better. -->
-    <style>
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700);
-body {
-    margin: 0 30px;
-}
-h1 {
-    margin: 20px auto;
-    display: block;
-    text-align: center;
-}
-body, input, textarea {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 100;
-    font-size: 17px;
-    margin: 10px auto 10px;
-}
-.app {
-    width: 600px;
-    margin: 0 auto;
-}
-.app > div > * {
-    display: block;
-    width: 600px;
-}
-.input {
-    float:left;
-}
-#my-title, #my-teaser, #my-content {
-    border: 1px solid #aaa;
-    outline: none;
-}
-#my-title:focus, #my-teaser:focus, #my-content:focus {
-    background-color: #EDD780;
-}
-    </style>
-
     <!-- Here we go Wikidocs -->
     <link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
     <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
     <script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>
-
 </head>
 <body>
 
@@ -62,18 +22,14 @@ body, input, textarea {
 </div>
 
 <script>
-// We make the server side generated access token available 
-// to the client via a Javascript global variable.
+// Use the access token that was created in common.php
 var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
 
-// provide doc id in Javascript to make use of it on the client site
+// Use the doc ID the access token was created with.
 var doc = '<?=$doc?>';
  
-// We create an app instance with permissions from
-// the server side generated access token.
 var app = WD.App(accessToken);
  
-// You can synchronize the texbox now.
 // As we have 3 differnt content areas in this example
 // we prefix all of them with the doc id.
 var textbox = document.getElementById('my-title');
@@ -83,8 +39,7 @@ app.Document('/'+doc+'-title').bind(textbox);
 var textarea = document.getElementById('my-teaser');
 app.Document('/'+doc+'-teaser').bind(textarea);
 
-// Plain editables work too if you don't need the advanced features
-// that WYSIWYG editor like Aloha Editor or wysiHTML5 provide.
+// Or any other DOM element
 var editable = document.getElementById('my-content');
 app.Document('/'+doc+'-content').bind(editable);
 

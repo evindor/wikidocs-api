@@ -5,83 +5,10 @@
 
 <title>wysihtml5 - Advanced Demo</title>
 
-<style>
-  body {
-    font-family: Verdana;
-    font-size: 11px;
-  }
-  
-  h2 {
-    margin-bottom: 0;
-  }
-  
-  small {
-    display: block;
-    margin-top: 40px;
-    font-size: 9px;
-  }
-  
-  small,
-  small a {
-    color: #666;
-  }
-  
-  a {
-    color: #000;
-    text-decoration: underline;
-    cursor: pointer;
-  }
-  
-  #toolbar [data-wysihtml5-action] {
-    float: right;
-  }
-  
-  #toolbar,
-  textarea {
-    width: 920px;
-    padding: 5px;
-    -webkit-box-sizing: border-box;
-    -ms-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  textarea {
-    height: 280px;
-    border: 2px solid green;
-    font-family: Verdana;
-    font-size: 11px;
-  }
-  
-  textarea:focus {
-    color: black;
-    border: 2px solid black;
-  }
-  
-  .wysihtml5-command-active {
-    font-weight: bold;
-  }
-  
-  [data-wysihtml5-dialog] {
-    margin: 5px 0 0;
-    padding: 5px;
-    border: 1px solid #666;
-  }
-  
-  a[data-wysihtml5-command-value="red"] {
-    color: red;
-  }
-  
-  a[data-wysihtml5-command-value="green"] {
-    color: green;
-  }
-  
-  a[data-wysihtml5-command-value="blue"] {
-    color: blue;
-  }
-</style>
+<link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
+<link rel="stylesheet" type="text/css" href="wysihtml5.css" />
 
-<h1>Wikidocs demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?></h1>
+<h1>Wikidocs & wysihtml5 demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?></h1>
 
 <form>
   <div id="toolbar" style="display: none;">
@@ -131,9 +58,6 @@
   <br><input type="reset" value="Reset form!">
 </form>
 
-<h2>Events:</h2>
-<div id="log"></div>
-
 <small>powered by <a href="https://github.com/xing/wysihtml5" target="_blank">wysihtml5</a> and <a href="https://wikidocs.com">Wikidocs</a>.</small>
 
 <script src="wysihtml5-rules-advanced.js"></script>
@@ -143,34 +67,6 @@
     toolbar:        "toolbar",
     parserRules:    wysihtml5ParserRules
   });
-  
-  var log = document.getElementById("log");
-  
-  editor
-    .on("load", function() {
-      log.innerHTML += "<div>load</div>";
-    })
-    .on("focus", function() {
-      log.innerHTML += "<div>focus</div>";
-    })
-    .on("blur", function() {
-      log.innerHTML += "<div>blur</div>";
-    })
-    .on("change", function() {
-      log.innerHTML += "<div>change</div>";
-    })
-    .on("paste", function() {
-      log.innerHTML += "<div>paste</div>";
-    })
-    .on("newword:composer", function() {
-      log.innerHTML += "<div>newword:composer</div>";
-    })
-    .on("undo:composer", function() {
-      log.innerHTML += "<div>undo:composer</div>";
-    })
-    .on("redo:composer", function() {
-      log.innerHTML += "<div>redo:composer</div>";
-    });
 </script>
 
 <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>

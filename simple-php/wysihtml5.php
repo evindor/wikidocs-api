@@ -6,7 +6,7 @@
 <title>wysihtml5 - Advanced Demo</title>
 
 <link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
-<link rel="stylesheet" type="text/css" href="wysihtml5.css" />
+<link rel="stylesheet" type="text/css" href="wysihtml5/wysihtml5.css" />
 
 <h1>Wikidocs & wysihtml5 demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?></h1>
 
@@ -60,7 +60,7 @@
 
 <small>powered by <a href="https://github.com/xing/wysihtml5" target="_blank">wysihtml5</a> and <a href="https://wikidocs.com">Wikidocs</a>.</small>
 
-<script src="wysihtml5-rules-advanced.js"></script>
+<script src="wysihtml5/wysihtml5-rules-advanced.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/wysihtml5/0.3.0/wysihtml5.min.js"></script>
 <script>
   var editor = new wysihtml5.Editor("textarea", {

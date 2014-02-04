@@ -25,8 +25,7 @@ $accessData = array(
     "access" => array(
         "/$doc-title"          => "full",
         "/$doc-teaser"         => "full",
-        "/$doc-content"        => "full",
-        "/$doc-wysihtml5"      => "full"
+        "/$doc"        => "full",
     ),
 );
 

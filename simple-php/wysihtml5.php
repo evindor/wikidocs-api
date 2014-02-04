@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=Edge">
 <meta charset="utf-8">
 
-<title>wysihtml5 - Advanced Demo</title>
+<title>Wikidocs & wysihtml5 Demo</title>
 
 <link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
 <link rel="stylesheet" type="text/css" href="wysihtml5/wysihtml5.css" />
@@ -76,11 +76,10 @@
 var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
 
 // Use the doc ID the access token was created with.
-var doc = '<?php echo $doc; ?>';
+var docId = '<?php echo $doc; ?>';
  
 var app = WD.App(accessToken);
- 
 var iframe = document.querySelector('iframe.wysihtml5-sandbox');
 var wysihtml5Body = iframe && iframe.contentDocument && iframe.contentDocument.body;
-app.Document('/' + doc + '-wysihtml5').bind(wysihtml5Body);
+app.Document('/' + docId).bind(wysihtml5Body);
 </script>

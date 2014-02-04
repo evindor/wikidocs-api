@@ -24,10 +24,10 @@ body, input, textarea {
 .input {
     float:left;
 }
-#my-title, #my-teaser, #my-content {
+#my-title, #my-teaser, #editable {
     border: 1px solid #aaa;
     outline: none;
 }
-#my-title:focus, #my-teaser:focus, #my-content:focus {
+#my-title:focus, #my-teaser:focus, #editable:focus {
     background-color: #EDD780;
 }

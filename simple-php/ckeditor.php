@@ -25,6 +25,8 @@ var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
 var docId = '<?php echo $doc; ?>';
 
 var app = WD.App(accessToken);
-var editable = document.getElementById('editable');
-app.Document('/' + docId).bind(editable);
+var doc = app.Document('/' + docId);
+CKEDITOR.on('instanceReady', function () {
+    doc.bind(document.getElementById('editable'));
+});
 </script>

@@ -83,7 +83,9 @@ var docId = '<?php echo $docId; ?>';
 var app = WD.App(accessToken);
 var iframe = document.querySelector('iframe.wysihtml5-sandbox');
 var wysihtml5Body = iframe && iframe.contentDocument && iframe.contentDocument.body;
-app.Document('/' + docId).bind(wysihtml5Body);
+app.Document('/' + docId).bind(wysihtml5Body, {
+    type: 'wysihtml5'
+});
 
 trackConnectionStatus(app, document.getElementById('connection-status'));
 </script>

@@ -31,7 +31,9 @@ var docId = '<?php echo $docId; ?>';
 var app = WD.App(accessToken);
 var doc = app.Document('/' + docId);
 CKEDITOR.on('instanceReady', function () {
-    doc.bind(document.getElementById('editable'));
+    doc.bind(document.getElementById('editable'), {
+        type: 'ckeditor'
+    });
 });
 
 trackConnectionStatus(app, document.getElementById('connection-status'));

@@ -46,8 +46,10 @@ app.Document('/' + docId).bind(editable);
 // Aloha Editor binding is pretty simple
 // Aloha.ready(function() {
 //     $('#aloha-editable').aloha()
-//     var alohaDoc = Aloha.getEditableById('aloha-editable');
-//     app.Document('/' + docId + '-aloha-doc').bind(alohaDoc);
+//     var editable = Aloha.getEditableById('aloha-editable');
+//     app.Document('/' + docId + '-aloha-doc').bind(editable, {
+//         type: 'aloha'
+//     });
 // }
 
 trackConnectionStatus(app, document.getElementById('connection-status'));

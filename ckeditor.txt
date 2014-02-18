@@ -1,0 +1,41 @@
+Support for ckeditor:
+
++ new page (just clears the editable)
+- templates (should re-init the editable)
++ copy/paste
+- undo (works, but not as intended)
++ find/replace/select-all
+- spellchecker; don't know how to get it to work, not a wikidocs issue
+- form; should we whitelist forms? what are the security implications?
++ form elements; input/select/textarea etc. all are whitelisted,
+  but the state or their text content is not an attribute but a property,
+  and properties are not synced; only if you bind a text input or a textarea
+  are they synced (should support that for checkboxes etc. as well).
+
++ bold, italic, underlined, strikethrough, subscript, superscript, remove-format
++ inser/remove/indent/outdent numbered/bulleted list
++ block quote
+= create div container
+= align left/center/right/justifiy
++ text-direction left/right, set language
+
+Links:
++ URL(http,https,news,ftp)/email links/unlinking
+- anchors (and links to anchors); would need transformations and maybe editable re-init
+- these attributes on the third link tab aren't whitelisted due to security
+  considerations (should we whitelist them?):
+  accesskey, charset, rel (relationship), type (content-type), tabindex, style
+- frame targets aren't whitelisted due to security considerations.
+
+= images except for non-whitelisted target attribute
+- flash (didn't try it out yet)
+= tables
++ horizontal line
+- page break (contentEditable attribute not whitelisted, should we?
+  also, needs some initialization to work correctly)
+- iframe (not whitelisted, should we?)
+
+= block/inline styles
++ block formats (h1,h2,...) 
+= font name/size, foreground/background color
++ show blocks

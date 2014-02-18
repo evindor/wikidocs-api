@@ -11,9 +11,9 @@ define("APP_ID", "demo");
 define("APP_SECRET", "demo");
 
 // Allow the document id to be specified in the URL.
-$doc = $_GET['doc'];
-if (!$doc) {
-    $doc = 'simple-demo';
+$docId = $_GET['doc'];
+if (!$docId) {
+    $docId = 'simple-demo';
 }
  
 $accessData = array(
@@ -23,9 +23,9 @@ $accessData = array(
     // just to distinguish clients in the demo. Should be the users id ;-)
     "sub" => $_SERVER['REMOTE_ADDR'], 
     "access" => array(
-        "/$doc-title"          => "full",
-        "/$doc-teaser"         => "full",
-        "/$doc"        => "full",
+        "/$docId-title"          => "full",
+        "/$docId-teaser"         => "full",
+        "/$docId"        => "full",
     ),
 );
 

@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
 <link rel="stylesheet" type="text/css" href="wysihtml5/wysihtml5.css" />
 
-<h1>Wikidocs & wysihtml5 demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?></h1>
+<h1>Wikidocs & wysihtml5 demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?> <span id="connection-status"></span></h1>
 
 <form>
   <div id="toolbar" style="display: none;">
@@ -53,7 +53,7 @@
     </div>
     
   </div>
-  <p id="doc-id">Doc: <a href="?doc=<?php echo $doc; ?>"><?php echo $doc; ?></a></p>
+  <p id="doc-id">Doc: <a href="?doc=<?php echo $docId; ?>"><?php echo $docId; ?></a></p>
   <textarea id="textarea" placeholder="Enter text ..."></textarea>
   <br><input type="reset" value="Reset form!">
 </form>
@@ -71,15 +71,19 @@
 
 <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
 <script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>
+<script src="connection-status.js"></script>
+
 <script>
 // Use the access token that was created in common.php
 var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
 
 // Use the doc ID the access token was created with.
-var docId = '<?php echo $doc; ?>';
+var docId = '<?php echo $docId; ?>';
  
 var app = WD.App(accessToken);
 var iframe = document.querySelector('iframe.wysihtml5-sandbox');
 var wysihtml5Body = iframe && iframe.contentDocument && iframe.contentDocument.body;
 app.Document('/' + docId).bind(wysihtml5Body);
+
+trackConnectionStatus(app, document.getElementById('connection-status'));
 </script>

@@ -6,13 +6,14 @@
     <link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
     <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
 	<script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>
+	<script src="connection-status.js"></script>
 </head>
 <body>
 
-<h1>Wikidocs demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?></h1>
+<h1>Wikidocs demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?> <span id="connection-status"></span></h1>
 
 <div class="app">
-    <p id="doc-id">Doc: <a href="?doc=<?php echo $doc; ?>"><?php echo $doc; ?></a></p>
+    <p id="doc-id">Doc: <a href="?doc=<?php echo $docId; ?>"><?php echo $docId; ?></a></p>
     <div class="input">
         <input type="text" id="my-title">
         <textarea id="my-teaser"></textarea>
@@ -25,7 +26,7 @@
 var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
 
 // Use the doc ID the access token was created with.
-var docId = '<?php echo $doc; ?>';
+var docId = '<?php echo $docId; ?>';
  
 var app = WD.App(accessToken);
  
@@ -49,6 +50,7 @@ app.Document('/' + docId).bind(editable);
 //     app.Document('/' + docId + '-aloha-doc').bind(alohaDoc);
 // }
 
+trackConnectionStatus(app, document.getElementById('connection-status'));
 </script>
 </body>
 </html>

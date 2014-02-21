@@ -59,36 +59,35 @@ Supported synchronisation features
 * new page (just clears the editable)
 * copy/paste
 * find/replace/select-all
+* font name/size, foreground/background color
 * bold, italic, underlined, strikethrough, subscript, superscript, remove-format
 * insert/remove/indent/outdent numbered/bulleted list
 * block quote
+* create div container
+* align left/center/right/justify
 * text-direction left/right, set language
-* URL(http,https,news,ftp)/email links/unlinking
-* horizontal line
+* URL (http, https, news, ftp)/email links/unlinking
+* horizontal rule
 * block formats (h1,h2,...) 
 * show blocks
 * 'insert paragraph' feature
+* images except the target attribute (not whitelisted)
+* links except links to anchors and the following attributes: accesskey,
+  charset, rel (relationship), type (content-type), tabindex, style,
+  target attributes (not whitelisted)
+* tables
 
 #### limited support
 
 * form elements; input/select/textarea etc. all are whitelisted, but the state or their text content is not an attribute but a property,  and properties are not synced; only if you bind a text input or a textarea are they synced (should support that for checkboxes etc. as well).
-* create div container
-* tables (no styles)
-* images (no styley and non-whitelisted target attribute)
-* block/inline (no styles)
 * undo (works, but not as intended)
 
 #### not supported
 
-* Styles and all depending featuers are not yet suppoerted
-* Styles: align left/center/right/justifiy
-* Styles: font name/size, foreground/background color (no styles)
+* anchors and links to anchors
 * templates (should re-init the editable)
 * spellchecker
 * form (security implications)
-* Links: anchors (and links to anchors); would need transformations and maybe editable re-init
-* Links: these attributes on the third link tab aren't whitelisted due to security considerations: accesskey, charset, rel (relationship), type (content-type), tabindex, style
-* Links: frame targets aren't whitelisted due to security considerations.
 * flash
 * page break (contentEditable attribute not whitelisted)
 * iframe (not whitelisted)

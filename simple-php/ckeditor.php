@@ -5,7 +5,7 @@
 
 <title>Wikidocs & CKEditor Demo</title>
 
-<link rel="stylesheet" type="text/css" href="//wikidocs-sandbox.com/lib/wikidocs.min.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
 
 <h1>Wikidocs & CKEditor demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?> <span id="connection-status"></span></h1>
 
@@ -17,8 +17,8 @@
 <small>powered by <a href="https://github.com/xing/CKEditor" target="_blank">CKEditor</a> and <a href="https://wikidocs.com">Wikidocs</a>.</small>
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/ckeditor/4.3.2/ckeditor.js"></script>
-<script src="//wikidocs-sandbox.com/lib/sockjs.min.js"></script>
-<script src="//wikidocs-sandbox.com/lib/wikidocs.min.js"></script>
+<script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
+<script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>
 <script src="connection-status.js"></script>
 
 <script>

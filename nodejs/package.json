@@ -1,0 +1,17 @@
+{
+  "name": "wikidocs-access-token",
+  "version": "0.0.1",
+  "description": "Wikidocs Access Token",
+  "homepage": "http://www.wikidocs.com/api",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/wikidocs/wikidocs-api"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "dependencies": {
+    "jwt-simple": "~0.1.0"
+  }
+}

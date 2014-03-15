@@ -4,7 +4,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="utf-8">
   <title>Wikidocs & wysihtml5 Textarea</title>
-  <link rel="stylesheet" type="text/css" href="../vendor/wysihtml5/wysihtml5.css" />
+  <link rel="stylesheet" type="text/css" href="../lib/wysihtml5.css" />
 </head>
 <body>
   <h1>Wikidocs & wysihtml5 demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?> <span id="connection-status"></span></h1>
@@ -59,7 +59,7 @@
 
   <small>powered by <a href="https://github.com/xing/wysihtml5" target="_blank">wysihtml5</a> and <a href="https://wikidocs.com">Wikidocs</a>.</small>
 
-  <script src="../vendor/wysihtml5/wysihtml5-rules-advanced.js"></script>
+  <script src="../lib/wysihtml5-rules-advanced.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/wysihtml5/0.3.0/wysihtml5.min.js"></script>
 
   <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>

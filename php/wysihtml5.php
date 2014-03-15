@@ -13,7 +13,8 @@
 
   <p>
       <div>Wikidocs connection: <span id="connection-status"><span style="color: red">disconnected</span></span></div>
-      <div>Online users: <span id="users"></span></div>
+      <div>You: <span id="you"></span></div>        
+      <div>Other online users: <span id="users"></span></div>
     <div id="doc-id">Doc: <a href="?doc=<?php echo $docId; ?>"><?php echo $docId; ?></a></div>
   </p>
 
@@ -95,8 +96,12 @@
     });
 
     // wikidocs helper functions from wikidocs-lib.js
-    trackConnectionStatus(app, document.getElementById('connection-status'));
-    showOnlineUsers(doc, document.getElementById('users'));
+    wdTrackConnectionStatus(app, document.getElementById('connection-status'));
+    var youContainer = document.getElementById('you');
+    var usersContainer = document.getElementById('users');
+    app.on('connected', function(session) {
+        wdShowOnlineUsers(session.sid, doc, youContainer, usersContainer);
+    });
   </script>
 </body>
 </html>

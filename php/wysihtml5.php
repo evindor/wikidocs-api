@@ -1,9 +1,9 @@
-<?php require_once('common.php'); ?>
+<?php require_once('access-token.php'); ?>
 <!DOCTYPE html>
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
   <meta charset="utf-8">
-  <title>Wikidocs & wysihtml5 Demo</title>
+  <title>Wikidocs & wysihtml5 Textarea</title>
   <link rel="stylesheet" type="text/css" href="../vendor/wysihtml5/wysihtml5.css" />
 </head>
 <body>
@@ -64,7 +64,7 @@
 
   <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
   <script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>
-  <script src="connection-status.js"></script>
+  <script src="../lib/connection-status.js"></script>
   <script>
   // Use the access token that was created in common.php
   var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';

@@ -1,11 +1,11 @@
-<?php require_once('common.php'); ?>
+<?php require_once('access-token.php'); ?>
 <html>
 <head>
     <title>Wikidocs Demo</title>
     <link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
     <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
 	<script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>
-	<script src="connection-status.js"></script>
+	<script src="../lib/connection-status.js"></script>
 </head>
 <body>
 

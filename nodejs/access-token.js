@@ -1,3 +1,4 @@
+// npm install jwt-simple
 var jwt = require('jwt-simple');
 
 var wdApiId = 'demo',

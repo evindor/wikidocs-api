@@ -1,3 +1,4 @@
+# sudo gem install jwt
 require 'JWT'
 
 wdApiId = 'demo'

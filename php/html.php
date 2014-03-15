@@ -5,20 +5,24 @@
     <link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
     <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
 	<script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>
-	<script src="../lib/connection-status.js"></script>
+	<script src="../lib/wikidocs-lib.js"></script>
 </head>
 <body>
 
-    <h1>Wikidocs demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?> <span id="connection-status"></span></h1>
-
+    <h1>
+        Wikidocs demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?>
+    </h1>
+    <p>
+        <div>Wikidocs connection: <span id="connection-status"><span style="color: red">disconnected</span></span></div>
+    </p>
     <p id="doc-id">Doc: <a href="?doc=<?php echo $docId; ?>"><?php echo $docId; ?></a></p>
     <h2>Sychronised input=text</h2>
     <input type="text" id="my-title">
     <h2>Sychronised textarea</h2>
     <textarea id="my-teaser"></textarea>
-    <h2>Sychronised html editable</h2>
+    <h2>Sychronised contenteditable html</h2>
     <div contenteditable="true" id="editable"></div>
-    <h2>Non editable sychronised plain html element</h2>
+    <h2>Sychronised non editable html element</h2>
     <button id="insert">Insert elements</button>
     <button id="reset">Reset</button>
     <div id="html">
@@ -55,7 +59,7 @@
         container.insertBefore(fragment, container.childNodes[0]);
     }, false);
 
-    // Use the access token that was created in common.php
+    // Use the access token that was created in access-token.php
     var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
 
     // Use the doc ID the access token was created with.
@@ -63,7 +67,7 @@
      
     var app = WD.App(accessToken);
      
-    // Synchronise the textarea
+    // Synchronise the input text field
     var textbox = document.getElementById('my-title');
     app.Document('/' + docId + '-text').bind(textbox);
 
@@ -79,7 +83,7 @@
     var html = document.getElementById('html');
     app.Document('/' + docId + '-html').bind(html);
 
-    trackConnectionStatus(app, document.getElementById('connection-status'));
+    wdTrackConnectionStatus(app, document.getElementById('connection-status'));
     </script>
 </body>
 </html>

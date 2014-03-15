@@ -36,7 +36,7 @@
     <script src="../lib/wikidocs-lib.js"></script>
      
     <script>
-        // Use the access token that was created in common.php
+        // Use the access token that was created in access-token.php
         var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
 
         // Use the doc ID the access token was created with.

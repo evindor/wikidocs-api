@@ -23,7 +23,7 @@ $randomId = rand(100,999);
 $accessData = array(
     "iss" => "https://wikidocs.com/v1/apps/" . APP_ID,
     "iat" => time(),
-    "exp" => time() + 60*60,
+    "exp" => time() + 3600*24, // 1 day expiration
     "sub" => 'user-' . $randomId,
     // propagate custom user attributes available in Wikidocs session object
     "session" => array(

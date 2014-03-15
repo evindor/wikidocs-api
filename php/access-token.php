@@ -15,17 +15,29 @@ $docId = $_GET['doc'];
 if (!$docId) {
     $docId = 'simple-demo';
 }
- 
+
+// Just to distinguish users in the demo. Should be the users id ;-)
+$randomId = rand();
+
+// JSON Web Token attributes
 $accessData = array(
     "iss" => "https://wikidocs.com/v1/apps/" . APP_ID,
     "iat" => time(),
     "exp" => time() + 60*60,
-    // just to distinguish clients in the demo. Should be the users id ;-)
-    "sub" => $_SERVER['REMOTE_ADDR'], 
+    "sub" => 'user-' + $randomId,
+    // propagate custom user attributes available in Wikidocs session object
+    "session" => array(
+       "randomId" => $randomId
+    ),
+    // This access token allows users to collaborate on 4 documents
+    // and send messages to global messaging channel
+    // access priviledges per channel [read|write|full]
     "access" => array(
-        "/$docId-title"          => "full",
-        "/$docId-teaser"         => "full",
-        "/$docId"                => "full"
+        "/$docId-text"           => "full", // input=text
+        "/$docId-textarea"       => "full", // textarea
+        "/$docId-html"           => "full", // plain html element
+        "/$docId"                => "full", // wysiwyg editors and content editable
+        "/messages"              => "full"  // messaging channel
     ),
 );
 

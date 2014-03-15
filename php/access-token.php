@@ -17,14 +17,14 @@ if (!$docId) {
 }
 
 // Just to distinguish users in the demo. Should be the users id ;-)
-$randomId = rand();
+$randomId = rand(100,999);
 
 // JSON Web Token attributes
 $accessData = array(
     "iss" => "https://wikidocs.com/v1/apps/" . APP_ID,
     "iat" => time(),
     "exp" => time() + 60*60,
-    "sub" => 'user-' + $randomId,
+    "sub" => 'user-' . $randomId,
     // propagate custom user attributes available in Wikidocs session object
     "session" => array(
        "randomId" => $randomId

@@ -9,10 +9,13 @@
 <body>
 	<h1>
 		Wikidocs &amp; TinyMCE demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?>
-		<span id="connection-status"></span>
 	</h1>
 
-	<p id="doc-id">Doc: <a href="?doc=<?php echo $docId; ?>"><?php echo $docId; ?></a></p>
+	<p>
+	    <div>Wikidocs connection: <span id="connection-status"><span style="color: red">disconnected</span></span></div>
+	    <div>Online users: <span id="users"></span></div>
+		<div id="doc-id">Doc: <a href="?doc=<?php echo $docId; ?>"><?php echo $docId; ?></a></div>
+	</p>
 
 	<textarea id="content">Your content here.</textarea>
 
@@ -21,29 +24,31 @@
 	<script src="//tinymce.cachefly.net/4.0/tinymce.min.js"></script>
 	<script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
 	<script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>
-	<script src="../lib/connection-status.js"></script>
+	<script src="../lib/wikidocs-lib.js"></script>
 
 	<script>
-	// Use the access token that was created in common.php
-	var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
+		// Use the access token that was created in common.php
+		var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
 
-	// Use the doc ID the access token was created with.
-	var docId = '<?php echo $docId; ?>';
+		// Use the doc ID the access token was created with.
+		var docId = '<?php echo $docId; ?>';
 
-	var app = WD.App(accessToken);
-	var doc = app.Document('/' + docId);
+		var app = WD.App(accessToken);
+		var doc = app.Document('/' + docId);
 
-	tinymce.init({
-		selector:'textarea',
-		content_css : "//wikidocs-sandbox.com/lib/wikidocs.min.css",
-		init_instance_callback : function(editor) {
-			doc.bind(editor.contentDocument.body, {
-			    type: 'ckeditor'
-			});
-	    }
-	});
+		tinymce.init({
+			selector:'textarea',
+			content_css : "//wikidocs-sandbox.com/lib/wikidocs.min.css",
+			init_instance_callback : function(editor) {
+				doc.bind(editor.contentDocument.body, {
+				    type: 'ckeditor'
+				});
+		    }
+		});
 
-	trackConnectionStatus(app, document.getElementById('connection-status'));
+        // wikidocs helper functions from wikidocs-lib.js
+        trackConnectionStatus(app, document.getElementById('connection-status'));
+        showOnlineUsers(doc, document.getElementById('users'));
 	</script>
 </body>
 </html>

@@ -7,7 +7,15 @@
   <link rel="stylesheet" type="text/css" href="../lib/wysihtml5.css" />
 </head>
 <body>
-  <h1>Wikidocs & wysihtml5 demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?> <span id="connection-status"></span></h1>
+  <h1>
+    Wikidocs & wysihtml5 demo on <?php echo $_SERVER['SERVER_ADDR']; ?>:<?php echo $_SERVER['SERVER_PORT']; ?>
+  </h1>
+
+  <p>
+      <div>Wikidocs connection: <span id="connection-status"><span style="color: red">disconnected</span></span></div>
+      <div>Online users: <span id="users"></span></div>
+    <div id="doc-id">Doc: <a href="?doc=<?php echo $docId; ?>"><?php echo $docId; ?></a></div>
+  </p>
 
   <form>
     <div id="toolbar" style="display: none;">
@@ -52,7 +60,6 @@
       </div>
       
     </div>
-    <p id="doc-id">Doc: <a href="?doc=<?php echo $docId; ?>"><?php echo $docId; ?></a></p>
     <textarea id="textarea" placeholder="Enter text ..."></textarea>
     <br><input type="reset" value="Reset form!">
   </form>
@@ -64,30 +71,32 @@
 
   <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
   <script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>
-  <script src="../lib/connection-status.js"></script>
+  <script src="../lib/wikidocs-lib.js"></script>
   <script>
-  // Use the access token that was created in common.php
-  var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
+    // Use the access token that was created in common.php
+    var accessToken = '<?php echo createAccessToken($accessData, APP_SECRET); ?>';
 
-  // Use the doc ID the access token was created with.
-  var docId = '<?php echo $docId; ?>';
-   
-  var app = WD.App(accessToken);
-  var doc = app.Document('/' + docId);
+    // Use the doc ID the access token was created with.
+    var docId = '<?php echo $docId; ?>';
+     
+    var app = WD.App(accessToken);
+    var doc = app.Document('/' + docId);
 
-  var editor = new wysihtml5.Editor("textarea", {
-    toolbar:        "toolbar",
-    parserRules:    wysihtml5ParserRules,
-    stylesheets:    "//wikidocs-sandbox.com/lib/wikidocs.min.css"    
-  });
-
-  editor.on("load", function(){
-    doc.bind(editor.composer.element, {
-        type: 'wysihtml5'
+    var editor = new wysihtml5.Editor("textarea", {
+      toolbar:        "toolbar",
+      parserRules:    wysihtml5ParserRules,
+      stylesheets:    "//wikidocs-sandbox.com/lib/wikidocs.min.css"    
     });
-  });
 
-  trackConnectionStatus(app, document.getElementById('connection-status'));
+    editor.on("load", function(){
+      doc.bind(editor.composer.element, {
+          type: 'wysihtml5'
+      });
+    });
+
+    // wikidocs helper functions from wikidocs-lib.js
+    trackConnectionStatus(app, document.getElementById('connection-status'));
+    showOnlineUsers(doc, document.getElementById('users'));
   </script>
 </body>
 </html>

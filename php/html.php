@@ -51,7 +51,7 @@
         while (container.firstChild) {
             container.removeChild(container.firstChild);
         }
-        var fragment = create('<p>Click the insert button to change the content.</p>');
+        var fragment = create('<p>Click the insert or reset button to change the content.</p>');
         container.insertBefore(fragment, container.childNodes[0]);
     }, false);
 

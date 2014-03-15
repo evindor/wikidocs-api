@@ -2,7 +2,6 @@
 <html>
 <head>
     <title>Wikidocs Demo</title>
-    <!-- Here we go Wikidocs -->
     <link rel="stylesheet" type="text/css" href="//cdn.wikidocs.com/lib/wikidocs.min.css" />
     <script src="//cdn.wikidocs.com/lib/sockjs.min.js"></script>
 	<script src="//cdn.wikidocs.com/lib/wikidocs.min.js"></script>

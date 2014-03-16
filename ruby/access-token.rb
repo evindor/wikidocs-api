@@ -12,7 +12,7 @@ payload = {
 	"access" => {
 		"/content-123" => "full"
 	}
-};
+}
 
 accessToken = JWT.encode(payload, wdApiSecret)
 

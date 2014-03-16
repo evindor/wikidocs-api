@@ -48,9 +48,9 @@
          
         // Aloha Editor binding
         Aloha.ready(function() {
-            $('#aloha-editable').aloha()
+            $('#aloha-editable').aloha();
             var editable = document.getElementById('aloha-editable');
-                doc.bind(editable, {
+            doc.bind(editable, {
                 type: 'aloha'
             });
         });

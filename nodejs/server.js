@@ -1,12 +1,17 @@
 var connect = require('connect'),
     http = require('http'),
-    token = require('./access-token');
+    wd = require('wikidocs');
 
 connect()
     .use(function(req, res, next) {
         if (req.url == '/token') {
             res.writeHead(200, {"Content-Type": "application/json"});
-            res.write(JSON.stringify(token()));
+            res.write(JSON.stringify(wd.generateAccessToken({
+                wdAppId: 'demo',
+                wdAppSecret: 'demo',
+                userId: '123',
+                access: {'/content-123': 'full'},
+            })));
             return res.end();
         }
         next();
